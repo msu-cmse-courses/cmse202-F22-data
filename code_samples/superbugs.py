@@ -24,7 +24,7 @@ import matplotlib.pyplot as plt
 # bug class
 # =============================================================================
 
-class bug():
+class Bug():
     """Bug class. 
     
     Each bug has 3 genes in the range [0, 1) and a location (c, r) in
@@ -80,7 +80,7 @@ class bug():
         Copies genes from the current bug to the new bug with probability
         equal to 1 - mutation_rate. Else, assigns new genes at random.
         """
-        newbug = bug(mutation_rate=self.mutation_rate)
+        newbug = Bug(mutation_rate=self.mutation_rate)
         for (i, g) in enumerate(self.genes):
             if random.random() > self.mutation_rate:
                 newbug.genes[i] = self.genes[i]
@@ -94,8 +94,8 @@ class bug():
 # petri_dish class
 # =============================================================================
 
-class petri_dish():
-    """petri_dish class.
+class Petri_dish():
+    """Petri_dish class.
     
     Generates a petridish representing the world where the bugs live. 
     Each dish has antibiotics and a list of bugs.
@@ -173,10 +173,10 @@ class petri_dish():
         # initialize bugs
         for row in range(n_rows):
             # bugs on the left
-            bl = bug(init_cols[1], row, bug_mutation_rate)
+            bl = Bug(init_cols[1], row, bug_mutation_rate)
 
             # bugs on the left
-            br = bug(init_cols[0], row, bug_mutation_rate)
+            br = Bug(init_cols[0], row, bug_mutation_rate)
             
             # add initial points to active and buglist
             self.buglist[br.loc] = br
